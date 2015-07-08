@@ -10,8 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ParserMapCompleter {
-    private static final Logger log = Logger.getLogger(ParserMapCompleter.class);
+public class BouquetMethodMapCompleter {
+    private static final Logger log = Logger.getLogger(BouquetMethodMapCompleter.class);
     //private Properties properties;
     private List<String> fieldList = new ArrayList<>();
     private List<Method> methodList = new ArrayList<>();
@@ -30,7 +30,7 @@ public class ParserMapCompleter {
 //        }
 //    }
 
-    public ParserMapCompleter() {
+    public BouquetMethodMapCompleter() {
     }
 
     public List<String> getFields(Class cc) {

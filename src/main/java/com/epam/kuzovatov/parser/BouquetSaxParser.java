@@ -2,7 +2,7 @@ package com.epam.kuzovatov.parser;
 
 import com.epam.kuzovatov.entity.Bouquet;
 import com.epam.kuzovatov.entity.Flower;
-import com.epam.kuzovatov.util.ParserMapCompleter;
+import com.epam.kuzovatov.util.BouquetMethodMapCompleter;
 import org.apache.log4j.Logger;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -24,7 +24,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class BouquetSaxParser implements XmlParser{
+public class BouquetSaxParser implements XmlParser {
     private static Logger log = Logger.getLogger(BouquetSaxParser.class);
     private Bouquet bouquet;
 
@@ -35,7 +35,7 @@ public class BouquetSaxParser implements XmlParser{
         private Stack<String> elementStack;
         private Stack<Object> objectStack;
         private Map<String,Method> fieldToMethodMap = new HashMap<>();
-        private ParserMapCompleter properties = new ParserMapCompleter();
+        private BouquetMethodMapCompleter properties = new BouquetMethodMapCompleter();
         private static final String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
         private Bouquet bouquet;
 
@@ -123,6 +123,33 @@ public class BouquetSaxParser implements XmlParser{
         public List<Flower> getBunch() {
             return bunch;
         }
+    }
+
+    @Override
+    public Bouquet parse(InputStream inputStream) {
+        URL xsdUrl = BouquetHandler.class.getClassLoader().getResource("Bouquet.xsd");
+        SchemaFactory schemaFactory = SchemaFactory.newInstance(BouquetHandler.getLanguage());
+        try {
+            Schema schema = schemaFactory.newSchema(xsdUrl);
+            SAXParserFactory spf = SAXParserFactory.newInstance();
+            spf.setNamespaceAware(true);
+            spf.setSchema(schema);
+            SAXParser parser = null;
+            BouquetHandler handler   = new BouquetHandler();
+            try {
+                parser = spf.newSAXParser();
+            } catch (ParserConfigurationException e) {
+                e.printStackTrace();
+            }
+            parser.parse(inputStream, handler);
+            for(Flower flower : handler.getBunch()){
+                System.out.println(flower.toString());
+            }
+            log.info(inputStream + " file is valid");
+        } catch (SAXException | IOException e) {
+            log.error(inputStream + " validation failed!", e);
+        }
+        return bouquet;
     }
 
     @Override
