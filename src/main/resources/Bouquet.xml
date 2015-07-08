@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bouquet xmlns="http://www.epam.com/bouquet"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.epam.com/bouquet http://www.epam.com/trucks/Bouquet.xsd">
+    <id>c7226349-be0a-4fcf-8142-47a489b6dbc0</id>
+    <name>simple bunch</name>
+    <flower>
+        <id>c7226349-be0a-4fcf-8142-47a489b6dbc1</id>
+        <name>rose</name>
+        <price>500.75</price>
+        <cutDate>2015-07-02</cutDate>
+        <stemLength>75.5</stemLength>
+        <color>red</color>
+    </flower>
+    <flower>
+        <id>c7226349-be0a-4fcf-8142-47a489b6dbc2</id>
+        <name>tulip</name>
+        <price>150.2</price>
+        <cutDate>2015-07-01</cutDate>
+        <stemLength>70.3</stemLength>
+        <color>yellow</color>
+    </flower>
+    <flower>
+        <id>c7226349-be0a-4fcf-8142-47a489b6dbc3</id>
+        <name>camomile</name>
+        <price>50</price>
+        <cutDate>2015-07-03</cutDate>
+        <stemLength>72.2</stemLength>
+        <color>white</color>
+    </flower>
+</bouquet>
