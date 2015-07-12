@@ -33,7 +33,7 @@ public class Accessory extends AbstractBouquetComponent {
     }
 
     @Override
-    public void setPrice(String price) {
+    public void setPrice(Double price) {
         super.setPrice(price);
     }
 

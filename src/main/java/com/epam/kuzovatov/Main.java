@@ -1,17 +1,20 @@
 package com.epam.kuzovatov;
 
-import com.epam.kuzovatov.parser.BouquetSaxParser;
-import org.boon.Boon;
+import com.epam.kuzovatov.parser.SaxBouquetParser;
+import com.epam.kuzovatov.parser.StaxBouquetParser;
 
 import java.io.InputStream;
 
 public class Main {
     public static void main(String[] args) {
-        BouquetSaxParser bouquetSaxParser = new BouquetSaxParser();
-        bouquetSaxParser.parse("Bouquet.xml");
+        SaxBouquetParser saxBouquetParser = new SaxBouquetParser();
+        saxBouquetParser.parse("Bouquet.xml");
+        StaxBouquetParser staxBouquetParser = new StaxBouquetParser();
         InputStream xmlIn = Main.class.getClassLoader().getResourceAsStream("Bouquet.xml");
-        //bouquetSaxParser.parse(xmlIn);
-        System.out.println(Boon.toPrettyJson(bouquetSaxParser.parse(xmlIn)));
+        staxBouquetParser.parse(xmlIn);
+
+//        bouquetSaxParser.parse(xmlIn);
+        //System.out.println(Boon.toPrettyJson(bouquetSaxParser.parse(xmlIn)));
 
 //        List<BouquetComponent> myBouquet = createBouquet(7, true, true, true);
 //        System.out.println(Boon.toPrettyJson(searchFlowerByStemLength(myBouquet, 50.1, 72.5)));

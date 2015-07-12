@@ -44,7 +44,7 @@ public class Flower extends AbstractBouquetComponent implements Comparator<Flowe
     }
 
     @Override
-    public void setId(String id) {
+    public void setId(UUID id) {
         super.setId(id);
     }
 
@@ -60,8 +60,8 @@ public class Flower extends AbstractBouquetComponent implements Comparator<Flowe
         return stemLength;
     }
 
-    public void setStemLength(String stemLength) {
-        this.stemLength = Double.parseDouble(stemLength);
+    public void setStemLength(Double stemLength) {
+        this.stemLength = stemLength;
     }
 
     @Override
@@ -80,7 +80,7 @@ public class Flower extends AbstractBouquetComponent implements Comparator<Flowe
     }
 
     @Override
-    public void setPrice(String price) {
+    public void setPrice(Double price) {
         super.setPrice(price);
     }
 

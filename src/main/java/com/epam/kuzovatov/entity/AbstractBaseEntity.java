@@ -17,8 +17,8 @@ public abstract class AbstractBaseEntity implements Serializable {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = UUID.fromString(id);
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     @Override

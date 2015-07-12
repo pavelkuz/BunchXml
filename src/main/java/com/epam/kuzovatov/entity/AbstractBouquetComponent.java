@@ -24,8 +24,8 @@ public abstract class AbstractBouquetComponent extends AbstractBaseEntity implem
         return price;
     }
 
-    public void setPrice(String price) {
-        this.price = Double.parseDouble(price);
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public String getName() {
